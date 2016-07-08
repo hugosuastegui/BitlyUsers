@@ -1,0 +1,22 @@
+  <h1> He aquí las direcciones guardadas en la base de datos </h1>
+  <p>Crea otra Bitly</p>
+  <form action="/urls" method="post">
+    <br>
+    <input type="text" name="user_input">
+    <input type="submit" value="Bitly!">
+  </form>
+  
+  <% if  @all_urls == [] %>
+    <p> No hay nada en la base de datos </p>
+  <% elsif @all_urls.is_a?(Url) %>
+  <%= @all_urls.name %>
+  <% else %>
+    <% @all_urls.each do |url| %>
+      <span style="color:green">SHORT:</span>
+      <a href="/<%= url.url_short %>"><%= url.url_short %><br><br></a>
+    <% end %>
+  <% end %>
+  <form action="/logout" method="get">
+    <input type="submit" value="Logout"><br>
+  </form>
+

@@ -1,0 +1,33 @@
+  <h1>Bienvenido a IniciaSesión!</h1>
+  <p>Este es una web con iniciar seción por el usuario.</p><br>
+  <% if @bulean %>
+  <p style="color:green">Usuario registrado</p>
+  <% @bulean = false %>
+  <%end %>
+   <% if @bulean2 %>
+  <p style="color:red">Logout Efectuado</p>
+  <% @bulean2 = false %>
+  <%end %>
+  <%= @error_message %>
+  <p>Crea una bitly a partir de una URL. No es necesario tener cuenta en la página.</p>
+  <form action="/urls" method="post">
+    <br>
+    <input type="text" name="user_input">
+    <input type="submit" value="Bitly!">
+  </form>
+  <p>Regístrate o inica sesión para poder gestionar todos tus bitly's</p>
+  <p style="color:blue">Regístrate!</p>
+  <form action="/register" method="post">
+    <input type="text" name="name" value="Coloca tu nombre"><br>
+    <input type="text" name="email" value="Coloca tu email"><br>
+    <input type="password" name="password" ><br>
+    <input type="submit" value="Register"><br>
+  </form>
+  <p style="color:blue">Inicia Sesión</p>
+  <form action="/login" method="post">
+    <input type="text" name="email" value="Email"><br>
+    <input type="password" name="password" ><br>
+    <input type="submit" value="Login"><br>
+  </form>
+
+  
